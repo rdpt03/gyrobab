@@ -178,32 +178,46 @@ public abstract class Gyropode {
         return Math.random() * -0.059698 - 1.463571;
     }
     
-    public void bloquer(){
-        
+    public void bloquer(){//RF
+        if (this.bloque == false){
+            this.bloque = true;
+        }
     }
     
-    public void debloquer(){
-        
+    public void debloquer(){//RF
+        if (this.bloque == true){
+            this.bloque = false;
+        }
     }
     
-    public void mettreEnMaintenance(){
-        
+    public void mettreEnMaintenance(){//RF
+        if (this.enMaintenance == false){
+            this.enMaintenance = true;
+        }
     }
     
-    public void mettreEnSerivce(){
-         
+    public void mettreEnSerivce(){//RF
+        if (this.enMaintenance == true){
+            this.enMaintenance = false;
+        }
     }
     
-    public void recupererNiveauChargeBatterie(){
-        
+    public long recupererNiveauChargeBatterie(){//RF
+        // retourne le niveau de charge (en pourcentage restant)de la batterie du gyropode, récupérée par Bluetooth (simulée)
+        return Math.round(Math.random()*100.0);
+
     }
     
-    public void recupererRoulageEstime(){
-        
+    public long recupererRoulageEstime(){//RF
+        // retourne la durée de roulage restante estimée (en nombre de minutes) du gyropode, récupérée par Bluetooth (simulée)
+        long BaseChargeBatterie = recupererNiveauChargeBatterie() ;
+        //System.out.println(BaseChargeBatterie);
+        return Math.round(BaseChargeBatterie*((Math.random()+0.9)*2.6)) ;
     }
     
-    public void recupererTempsRestantEstimePourCharger(){
-        
+    public long recupererTempsRestantEstimePourCharger(){//
+        long BaseChargeBatterie = recupererNiveauChargeBatterie();
+        System.out.println
     }
     
     public void majInfo(){
